@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Stu-Nest</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="SignUp-Container">
+        <div class="header-signUp">
+            <h2>Join Stu-Nest</h2>
+            <p>Create your account and find your perfect home</p>
+        </div>
+
+        <div class="SignUp-card">
+            <form id="signupForm" action="backend/auth/signup.php">
+                <!-- User Type Selection -->
+                <div class="user-type-section">
+                    <h3>I am a</h3>
+                    <div class="role">
+                        <div class="role-box active" data-role="student">
+                            <span class="role-icon"> 
+                                <i class="fas fa-user-graduate"></i>
+                            </span>
+                            <h4>Student</h4>
+                            <small>Looking for boarding</small>
+                        </div>
+
+                        <div class="role-box" data-role="owner">
+                            <span class="role-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </span>
+                            <h4>Owner</h4>
+                            <small>List your property</small>
+                        </div>
+                    </div>
+                    <input type="hidden" name="userType" id="userType" value="student">
+                </div>
+
+                <!-- Full Name Field -->
+                <div class="form-field">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <div class="input-icon">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" name="fullName" id="fullName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <!-- For University Field (only shown for student) -->
+                <div class="form-field student-field" id="universityField">
+                    <label for="university">University <span class="required">*</span></label>
+                    <div class="input-icon">
+                        <i class="fas fa-university icon"></i>
+                        <input type="text" name="university" id="university" placeholder="Enter your university">
+                    </div>
+                </div>
+
+                <!-- Phone Number Field -->
+                <div class="form-field">
+                    <label for="phoneNo">Phone Number <span class="required">*</span></label>
+                    <div class="input-icon">
+                        <i class="fas fa-phone icon"></i>
+                        <input type="tel" name="phoneNo" id="phoneNo" placeholder="+94 77 123 4567" required>
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-field">
+                    <label for="emailAddress">Email Address <span class="required">*</span></label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope icon"></i>
+                        <input type="email" name="emailAddress" id="emailAddress" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <!-- Password Fields Side by Side -->
+                <div class="password-row">
+                    <div class="form-field">
+                        <label for="password">Password <span class="required">*</span></label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock icon"></i>
+                            <input type="password" name="password" id="password" placeholder="Create a password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                        <div class="input-icon">
+                            <i class="fas fa-lock icon"></i>
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm your password" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Password Requirements -->
+                <div class="password-rules">
+                    <p>Password must contain:</p>
+                    <ul>
+                        <li class="valid"> <i class="fas fa-check"></i> At least 8 characters</li>
+                        <li class="valid"> <i class="fas fa-check"></i> One uppercase letter</li>
+                        <li class="valid"> <i class="fas fa-check"></i> One lowercase letter</li>
+                        <li class="valid"> <i class="fas fa-check"></i> One number</li>
+                    </ul>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="terms-condition">
+                    <input type="checkbox" id="termsCheckbox" name="terms" required>
+                    <label for="termsCheckbox">
+                        I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a> <span class="required">*</span>
+                    </label>
+                </div>
+
+                <!-- Create Account Button -->
+                <div class="signUp-button">
+                    <button type="submit" id="createAccountBtn">Create Account</button>
+                </div>
+                
+                <!-- Sign In Link -->
+                <p class="signIn-link">
+                    Already have an account? <a href="signin.html">Sign In</a>
+                </p>                
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- External JavaScript Files -->
+    <script src="Script.js"></script> 
+    <script src="signup.js"></script> 
+</body>
+</html>

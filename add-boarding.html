@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="Style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="owner-dashboard">
+        <div class="dashboard-header">
+            <h1>Owner Dashboard</h1>
+            <p>Manage your boarding listings</p>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Add New Listing Form -->
+            <div class="add-listing-card">
+                <h2>Add New Listing</h2>
+                <form id="addListingForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="listingTitle">Listing Title</label>
+                            <input type="text" id="listingTitle" placeholder="Comfortable Single Room Near University">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="university">University</label>
+                            <select id="university" name="university">
+                                <option value="" disabled selected>Select University</option>
+                                <option value="colombo">University of Colombo</option>
+                                <option value="moratuwa">University of Moratuwa</option>
+                                <option value="peradeniya">University of Peradeniya</option>
+                                <option value="kelaniya">University of Kelaniya</option>
+                                <option value="jayawardenapura">University of Sri Jayewardenepura</option>
+                                <option value="ruhuna">University of Ruhuna</option>
+                                <option value="open">Open University of Sri Lanka</option>
+                                <option value="other">Other University</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="Wellawatte, Colombo 06">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="distance">Distance from University</label>
+                            <input type="text" id="distance" placeholder="e.g., 1.5 km">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">Monthly Price (LKR)</label>
+                            <input type="number" id="price" placeholder="15000" min="0" step="1000">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="roomType">Room Type</label>
+                            <select id="roomType" name="roomType">
+                                <option value="" disabled selected>Select Room Type</option>
+                                <option value="single">Single Room</option>
+                                <option value="double">Double Room</option>
+                                <option value="shared">Shared Room</option>
+                                <option value="studio">Studio Apartment</option>
+                                <option value="apartment">Full Apartment</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="genderPreference">Gender Preference</label>
+                            <select id="genderPreference" name="genderPreference">
+                                <option value="" disabled selected>Select Preference</option>
+                                <option value="male">Male Only</option>
+                                <option value="female">Female Only</option>
+                                <option value="any">Any Gender</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="description">Description</label>
+                            <textarea id="description" placeholder="Describe your boarding place..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">Create Listing</button>
+                        <button type="button" class="btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-card">
+                <h2>Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">Total Listings</span>
+                    </div>
+                    <div class="stat-box>
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">Available</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">245</span>
+                        <span class="stat-label">Total Views</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">4.5</span>
+                        <span class="stat-label">Avg. Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Listings Table -->
+            <div class="listings-section">
+                <h2>My Listings</h2>
+                <table class="listings-table">
+                    <thead>
+                        <tr>
+                            <th>LISTING</th>
+                            <th>UNIVERSITY</th>
+                            <th>PRICE</th>
+                            <th>STATUS</th>
+                            <th>RATING</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listingsTableBody">
+                        <tr>
+                            <td>
+                                <div class="listing-title">Comfortable Single Room Near University Wellawatte</div>
+                            </td>
+                            <td>University of Colombo</td>
+                            <td>LKR 15,000</td>
+                            <td>
+                                <span class="status-badge status-available">Available</span>
+                            </td>
+                            <td>
+                                <span class="rating">4.5 (12)</span>
+                            </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn" title="View Details">
+                                        <i class="fas fa-file-alt"></i>
+                                    </button>
+                                    <button class="action-btn" title="View on Map">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>    
+    <div id="footer-placeholder"></div>
+
+    <script src="Script.js"></script>
+    <script src="owner-dashboard.js"></script>
+</body>
+</html>

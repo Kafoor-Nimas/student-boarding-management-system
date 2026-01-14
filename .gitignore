@@ -1,0 +1,21 @@
+# Logs and databases
+*.log
+*.sqlite
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Private environments
+.env
+.env.local
+
+# Dependencies
+node_modules/
+venv/
+env/
+
+# Build folders
+dist/
+build/
+out/

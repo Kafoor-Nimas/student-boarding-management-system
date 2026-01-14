@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Stu-Nest</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Stu-Nest</h2>
+            <p>Sign in to continue</p>
+        </div>
+
+        <div class="login-card">
+            <form id="loginForm">
+                <!-- User Type Selection -->
+                <div class="user-type-section">
+                    <h3>I am a</h3>
+                    <div class="role">
+                        <div class="role-box active" id="studentRole" data-role="student">
+                            <span class="role-icon"> 
+                                <i class="fas fa-user-graduate"></i>
+                            </span>
+                            <h4>Student</h4>
+                        </div>
+
+                        <div class="role-box" id="ownerRole" data-role="owner">
+                            <span class="role-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </span>
+                            <h4>Owner</h4>
+                        </div>
+                    </div>
+                    <input type="hidden" name="userType" id="userType" value="student">
+                </div>
+
+                <!-- Email Address Field -->
+                <div class="form-field">
+                    <label for="loginEmail">Email Address <span class="required">*</span></label>
+                    <div class="input-icon">
+                        <i class="fas fa-envelope icon"></i>
+                        <input type="email" name="email" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-field">
+                    <div class="password-label-row">
+                        <label for="loginPassword">Password <span class="required">*</span></label>
+                        <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <div class="input-icon">
+                        <i class="fas fa-lock icon"></i>
+                        <input type="password" name="password" id="loginPassword" placeholder="Enter your password" required>
+                        <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <!-- Remember Me Checkbox -->
+                <div class="remember-me">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">Remember me for 30 days</label>
+                </div>
+
+                <!-- Sign In Button -->
+                <div class="login-button">
+                    <button type="submit" id="signInBtn">Sign In</button>
+                </div>
+                
+                <!-- Sign Up Link -->
+                <p class="signup-link">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </p>
+
+                <!-- Terms Note -->
+                <p class="terms-note">
+                    By signing in, you agree to our <a href="terms.html">Terms of Service</a>, <a href="privacy.html">Privacy Policy</a>.
+                </p>                
+            </form>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- External JavaScript Files -->
+    <script src="Script.js"></script> 
+    <script src="signin.js"></script>
+
+</body>
+</html>
