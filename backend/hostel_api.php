@@ -36,4 +36,26 @@ if ($method === 'POST') {
         echo json_encode(["status" => "error", "message" => mysqli_error($conn)]);
     }
 }
+
+// ... after your POST block ...
+
+if ($method === 'DELETE') {
+    // Read the JSON data sent from JavaScript
+    $data = json_decode(file_get_contents("php://input"), true);
+    
+    if (isset($data['id'])) {
+        $id = mysqli_real_escape_string($conn, $data['id']);
+        
+        // Use your exact table name from the screenshot: hostel_listings
+        $sql = "DELETE FROM hostel_listings WHERE id = $id";
+        
+        if (mysqli_query($conn, $sql)) {
+            echo json_encode(["status" => "success"]);
+        } else {
+            echo json_encode(["status" => "error", "message" => mysqli_error($conn)]);
+        }
+    } else {
+        echo json_encode(["status" => "error", "message" => "No ID provided"]);
+    }
+}
 ?>
