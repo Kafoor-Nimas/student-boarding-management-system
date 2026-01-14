@@ -21,48 +21,48 @@ document.addEventListener("DOMContentLoaded", function () {
         const card = document.createElement("article");
         card.className = "listing-card";
 
-        // Map database values to your HTML structure
+        // 1. Construct the path to your uploaded image
+        // If image_name is empty or null, fall back to a default image
+        const imageSrc = hostel.image_name
+          ? `assets/images/uploads/${hostel.image_name}`
+          : `assets/images/default-room.jpg`;
+
+        // 2. Map database values to your HTML structure
         card.innerHTML = `
-                    <div class="image-wrapper">
-                        <img src="https://via.placeholder.com/400x250" alt="${
-                          hostel.listing_title
-                        }">
-                        <span class="tag type-tag">${hostel.room_type}</span>
-                        <span class="tag status-tag">${
-                          hostel.status || "Available"
-                        }</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="title-row">
-                            <h4>${hostel.listing_title}</h4>
-                            <span class="rating"><i class="fas fa-star"></i> 4.5</span>
-                        </div>
-                        <p class="location-text">
-                            <i class="fas fa-map-marker-alt"></i> ${
-                              hostel.location
-                            } • ${hostel.distance} from University
-                        </p>
-                        <div class="amenities-row">
-                            <span><i class="fas fa-wifi"></i> WiFi</span>
-                            <span><i class="fas fa-venus-mars"></i> ${
-                              hostel.gender
-                            }</span>
-                            <span class="more">${hostel.university}</span>
-                        </div>
-                        <div class="price-footer">
-                            <div class="price-info">
-                                <span class="currency">LKR</span>
-                                <span class="amount">${parseFloat(
-                                  hostel.monthly_price
-                                ).toLocaleString()}</span>
-                                <span class="unit">per month</span>
-                            </div>
-                            <a href="view-details.html?id=${
-                              hostel.id
-                            }" class="view-btn">View Details</a>
-                        </div>
-                    </div>
-                `;
+        <div class="image-wrapper">
+            <img src="${imageSrc}" alt="${hostel.listing_title}">
+            <span class="tag type-tag">${hostel.room_type}</span>
+            <span class="tag status-tag">${hostel.status || "Available"}</span>
+        </div>
+        <div class="card-body">
+            <div class="title-row">
+                <h4>${hostel.listing_title}</h4>
+                <span class="rating"><i class="fas fa-star"></i> 4.5</span>
+            </div>
+            <p class="location-text">
+                <i class="fas fa-map-marker-alt"></i> ${hostel.location} • ${
+          hostel.distance
+        } from University
+            </p>
+            <div class="amenities-row">
+                <span><i class="fas fa-wifi"></i> WiFi</span>
+                <span><i class="fas fa-venus-mars"></i> ${hostel.gender}</span>
+                <span class="more">${hostel.university}</span>
+            </div>
+            <div class="price-footer">
+                <div class="price-info">
+                    <span class="currency">LKR</span>
+                    <span class="amount">${parseFloat(
+                      hostel.monthly_price
+                    ).toLocaleString()}</span>
+                    <span class="unit">per month</span>
+                </div>
+                <a href="view-details.html?id=${
+                  hostel.id
+                }" class="view-btn">View Details</a>
+            </div>
+        </div>
+    `;
         listingsContainer.appendChild(card);
       });
     } catch (error) {
