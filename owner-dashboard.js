@@ -1,20 +1,52 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Form and UI elements
+// Keep this global so the buttons can find it
+window.editListing = function (id) {
+  window.location.href = `add-boarding.html?edit=${id}`;
+};
+
+document.addEventListener("DOMContentLoaded", async function () {
   const addListingForm = document.getElementById("addListingForm");
-  const cancelButton = document.querySelector(".btn-secondary");
   const listingsTableBody =
     document.getElementById("listingsTableBody") ||
     document.getElementById("listingTable");
 
-  // 1. Initial Load from MySQL Database
-  loadListingsFromDB();
+  // --- PART A: DASHBOARD LOGIC ---
+  if (listingsTableBody) {
+    loadListingsFromDB();
+  }
 
-  // 2. Form submission handling (Saves to Database)
+  // --- PART B: EDIT MODE LOGIC (Run only if on Add page with ?edit=ID) ---
+  const urlParams = new URLSearchParams(window.location.search);
+  const editId = urlParams.get("edit");
+
+  if (editId && addListingForm) {
+    // Change button text to indicate update
+    const submitBtn = addListingForm.querySelector(".btn-primary");
+    if (submitBtn) submitBtn.textContent = "Update Listing";
+
+    try {
+      // Fetch the specific listing data to fill the form
+      const response = await fetch(`backend/hostel_api.php?id=${editId}`);
+      const data = await response.json();
+
+      // Fill form fields with existing DB data
+      document.getElementById("listingTitle").value = data.listing_title;
+      document.getElementById("university").value = data.university;
+      document.getElementById("location").value = data.location;
+      document.getElementById("distance").value = data.distance;
+      document.getElementById("price").value = data.monthly_price;
+      document.getElementById("roomType").value = data.room_type;
+      document.getElementById("genderPreference").value = data.gender;
+      document.getElementById("description").value = data.description;
+    } catch (error) {
+      console.error("Error loading listing for edit:", error);
+    }
+  }
+
+  // --- PART C: FORM SUBMISSION (Handles both POST and PUT) ---
   if (addListingForm) {
     addListingForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      // Collect form values
       const formData = {
         listing_title: document.getElementById("listingTitle").value.trim(),
         university: document.getElementById("university").value,
@@ -26,118 +58,89 @@ document.addEventListener("DOMContentLoaded", function () {
         description: document.getElementById("description").value.trim(),
       };
 
-      // Basic Validation
-      if (!formData.listing_title || !formData.monthly_price) {
-        showAlert("Please fill in required fields.", "error");
-        return;
-      }
+      // If we are in edit mode, add the ID to data
+      if (editId) formData.id = editId;
 
       try {
         const response = await fetch("backend/hostel_api.php", {
-          method: "POST",
+          // Use PUT if editId exists, otherwise POST
+          method: editId ? "PUT" : "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         });
 
         const result = await response.json();
         if (result.status === "success") {
-          showAlert("Listing created successfully!", "success");
-          addListingForm.reset();
-          // Redirect to dashboard if on "Add" page
-          if (window.location.pathname.includes("add-boarding")) {
-            window.location.href = "owner-dashboard.html";
-          } else {
-            loadListingsFromDB();
-          }
+          alert(editId ? "Listing updated!" : "Listing created!");
+          window.location.href = "owner-dashboard.html";
         }
       } catch (error) {
-        showAlert("Could not connect to the database.", "error");
+        alert("Could not save to database.");
       }
     });
   }
 
-  // 3. Fetch from Database and Render Table
+  // --- PART D: HELPER FUNCTIONS ---
   async function loadListingsFromDB() {
-    if (!listingsTableBody) return;
-
     try {
       const response = await fetch("backend/hostel_api.php");
       const listings = await response.json();
-
-      listingsTableBody.innerHTML = ""; // This clears your static HTML row
+      listingsTableBody.innerHTML = "";
 
       listings.forEach((listing) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-                <td>
-                    <div class="listing-title"><strong>${
-                      listing.listing_title
-                    }</strong></div>
-                    <small>${listing.location}</small>
-                </td>
-                <td>${listing.university}</td>
-                <td>LKR ${parseFloat(
-                  listing.monthly_price
-                ).toLocaleString()}</td>
-                <td><span class="status-badge status-available">${
-                  listing.status || "Active"
-                }</span></td>
-                <td><span class="rating">New</span></td>
-                <td>
-                    <div class="action-buttons">
-                        <button class="icon-btn view" title="View" onclick="viewListing(${
-                          listing.id
-                        })">
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
-
-                        <button class="icon-btn edit" title="Edit" onclick="editListing(${
-                          listing.id
-                        })">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
-
-                        <button class="icon-btn delete" title="Delete" onclick="deleteListing(${
-                          listing.id
-                        })" style="color:red">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-                </td>
-            `;
+                    <td>
+                        <div class="listing-title"><strong>${
+                          listing.listing_title
+                        }</strong></div>
+                        <small>${listing.location}</small>
+                    </td>
+                    <td>${listing.university}</td>
+                    <td>LKR ${parseFloat(
+                      listing.monthly_price
+                    ).toLocaleString()}</td>
+                    <td><span class="status-badge status-available">${
+                      listing.status || "Active"
+                    }</span></td>
+                    <td><span class="rating">New</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="icon-btn edit" onclick="editListing(${
+                              listing.id
+                            })">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button class="icon-btn delete" onclick="deleteListing(${
+                              listing.id
+                            })" style="color:red">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>`;
         listingsTableBody.appendChild(row);
       });
-
       updateStats(listings);
     } catch (error) {
-      console.error("Error loading data:", error);
+      console.error(error);
     }
   }
 
-  // 4. Update Stats (With Fix for textContent Error)
   function updateStats(listings) {
     const totalVal = document.getElementById("totalListings");
     const availVal = document.getElementById("availableCount");
-    const viewsVal = document.getElementById("totalViews");
-
-    // These 'if' checks prevent the "undefined textContent" error
     if (totalVal) totalVal.textContent = listings.length;
     if (availVal) availVal.textContent = listings.length;
-    if (viewsVal) viewsVal.textContent = "0";
   }
 
-  // 5. Delete Functionality
   window.deleteListing = async (id) => {
-    if (confirm("Delete this listing permanently?")) {
+    if (confirm("Delete this listing?")) {
       await fetch("backend/hostel_api.php", {
         method: "DELETE",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id: id }),
       });
       loadListingsFromDB();
     }
   };
-
-  function showAlert(message, type) {
-    alert(message); // You can replace this with your custom alert HTML
-  }
 });
