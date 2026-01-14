@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Owner Dashboard</title>
-    <link rel="stylesheet" href="Style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="Style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div id="header-placeholder"></div>
 
-<div class="container">
-
-    <!-- Header -->
-    <div class="header">
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
         <div>
-            <h1>Owner Dashboard</h1>
-            <p class="subtitle">Manage your boarding listings</p>
+          <h1>Owner Dashboard</h1>
+          <p class="subtitle">Manage your boarding listings</p>
         </div>
-        <a href="add-boarding.html"><button id="addListingBtn"> + Add New Listing</button></a>
-    </div>
+        <a href="add-boarding.html"
+          ><button id="addListingBtn">+ Add New Listing</button></a
+        >
+      </div>
 
-    <!-- Stats -->
-    <div class="stats">
+      <!-- Stats -->
+      <div class="stats">
         <div class="card">
-            <span>Total Listings</span>
-            <h2 id="totalListings">1</h2>
+          <span>Total Listings</span>
+          <h2 id="totalListings">1</h2>
         </div>
         <div class="card">
-            <span>Available</span>
-            <h2 class="green" id="availableCount">1</h2>
+          <span>Available</span>
+          <h2 class="green" id="availableCount">1</h2>
         </div>
         <div class="card">
-            <span>Total Views</span>
-            <h2 id="totalViews">245</h2>
+          <span>Total Views</span>
+          <h2 id="totalViews">245</h2>
         </div>
         <div class="card">
-            <span>Avg. Rating</span>
-            <h2 id="avgRating">4.5</h2>
+          <span>Avg. Rating</span>
+          <h2 id="avgRating">4.5</h2>
         </div>
-    </div>
+      </div>
 
-    <!-- Listings -->
-    <div class="listings">
-        
+      <!-- Listings -->
+      <div class="listings">
         <h3>My Listings</h3>
 
         <table>
-            <thead>
-                <tr>
-                    <th>Listing</th>
-                    <th>University</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                    <th>Rating</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
+          <thead>
+            <tr>
+              <th>Listing</th>
+              <th>University</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Rating</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
 
-            <tbody id="listingTable">
-                <tr>
-                    <td>
-                        <strong>Comfortable Single Room Near University</strong><br>
-                        <small>Wellawatte</small>
-                    </td>
-                    <td>University of Colombo</td>
-                    <td>LKR 15,000</td>
-                    <td>
-                        <span class="status available">Available</span>
-                    </td>
-                    <td>4.5 (12)</td>
-                    <td class="actions">
-                        <button class="icon-btn view" title="View">
-                            <i class="fa-solid fa-eye"></i>
-                        </button>
+          <tbody id="listingTable">
+            <tr>
+              <td>
+                <strong>Comfortable Single Room Near University</strong><br />
+                <small>Wellawatte</small>
+              </td>
+              <td>University of Colombo</td>
+              <td>LKR 15,000</td>
+              <td>
+                <span class="status available">Available</span>
+              </td>
+              <td>4.5 (12)</td>
+              <td class="actions">
+                <button class="icon-btn view" title="View">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
 
-                        <button class="icon-btn edit" title="Edit">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
+                <button class="icon-btn edit" title="Edit">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
 
-                        <button class="icon-btn delete" title="Delete">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </td>
-
-                </tr>
-            </tbody>
+                <button class="icon-btn delete" title="Delete">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
         </table>
+      </div>
     </div>
-
-</div>
 
     <div id="footer-placeholder"></div>
 
     <script src="Script.js"></script>
 
-<script src="js/dashboard.js"></script>
-</body>
+    <!-- <script src="js/dashboard.js"></script> -->
+    <script src="owner-dashboard.js"></script>
+  </body>
 </html>
