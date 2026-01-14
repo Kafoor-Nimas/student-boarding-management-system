@@ -1,195 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Your Perfect Boarding | Stu-Nest</title>
-    <link rel="stylesheet" href="Style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
-</head>
+    <link rel="stylesheet" href="Style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+  </head>
 
-<body class="background">
-
+  <body class="background">
     <div id="header-placeholder"></div>
 
     <section class="listings-container">
-        <h1 class="main-page-title">Find Your Perfect Boarding</h1>
+      <h1 class="main-page-title">Find Your Perfect Boarding</h1>
 
-        <aside class="filter-sidebar">
-            <div class="filter-title">
-                <i class="fas fa-sliders-h"></i> Filters
-            </div>
-        
-            <div class="filter-group">
-                <label>Search</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Location, keywords...">
+      <aside class="filter-sidebar">
+        <div class="filter-title"><i class="fas fa-sliders-h"></i> Filters</div>
+
+        <div class="filter-group">
+          <label>Search</label>
+          <div class="input-wrapper">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Location, keywords..." />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>University</label>
+          <div class="input-wrapper">
+            <i class="fas fa-location-dot"></i>
+            <select class="custom-select">
+              <option>Select University</option>
+              <option>University of Kelaniya</option>
+              <option>University of Colombo</option>
+            </select>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Room Type</label>
+          <div class="option-list">
+            <label><input type="radio" name="room" checked /> Single</label>
+            <label><input type="radio" name="room" /> Shared</label>
+            <label><input type="radio" name="room" /> Annex</label>
+            <label><input type="radio" name="room" /> All Types</label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label>Gender</label>
+          <div class="option-list">
+            <label><input type="radio" name="gender" /> Male</label>
+            <label><input type="radio" name="gender" /> Female</label>
+            <label><input type="radio" name="gender" checked /> Any</label>
+          </div>
+        </div>
+      </aside>
+
+      <main class="listings-content">
+        <div class="listings-wrapper">
+          <div class="listings-grid" id="hostelListingsContainer">
+            <article class="listing-card">
+              <div class="image-wrapper">
+                <img
+                  src="https://via.placeholder.com/400x250"
+                  alt="Boarding Room"
+                />
+                <span class="tag type-tag">Single</span>
+                <span class="tag status-tag">Available</span>
+              </div>
+              <div class="card-body">
+                <div class="title-row">
+                  <h4>Comfortable Single Room Near University</h4>
+                  <span class="rating"><i class="fas fa-star"></i> 4.5</span>
                 </div>
-            </div>
-
-            <div class="filter-group">
-                <label>University</label>
-                <div class="input-wrapper">
-                    <i class="fas fa-location-dot"></i>
-                    <select class="custom-select">
-                        <option>Select University</option>
-                        <option>University of Kelaniya</option>
-                        <option>University of Colombo</option>
-                    </select>
-                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                <p class="location-text">
+                  <i class="fas fa-map-marker-alt"></i> Wellawatte • 1.2 km from
+                  University
+                </p>
+                <div class="amenities-row">
+                  <span><i class="fas fa-wifi"></i> WiFi</span>
+                  <span><i class="fas fa-utensils"></i> Meals</span>
+                  <span>AC</span>
+                  <span class="more">+2 more</span>
                 </div>
-            </div>
-
-            <div class="filter-group">
-                <label>Room Type</label>
-                <div class="option-list">
-                    <label><input type="radio" name="room" checked> Single</label>
-                    <label><input type="radio" name="room"> Shared</label>
-                    <label><input type="radio" name="room"> Annex</label>
-                    <label><input type="radio" name="room"> All Types</label>
+                <div class="price-footer">
+                  <div class="price-info">
+                    <span class="currency">LKR</span>
+                    <span class="amount">15,000</span>
+                    <span class="unit">per month</span>
+                  </div>
+                  <a href="#" class="view-btn">View Details</a>
                 </div>
-            </div>
+              </div>
+            </article>
 
-            <div class="filter-group">
-                <label>Gender</label>
-                <div class="option-list">
-                    <label><input type="radio" name="gender"> Male</label>
-                    <label><input type="radio" name="gender"> Female</label>
-                    <label><input type="radio" name="gender" checked> Any</label>
+            <article class="listing-card">
+              <div class="image-wrapper">
+                <img
+                  src="https://via.placeholder.com/400x250"
+                  alt="Boarding Room"
+                />
+                <span class="tag type-tag">Shared</span>
+                <span class="tag status-tag">Available</span>
+              </div>
+              <div class="card-body">
+                <div class="title-row">
+                  <h4>Budget-Friendly Shared Room</h4>
+                  <span class="rating"><i class="fas fa-star"></i> 4.0</span>
                 </div>
-            </div>
-        </aside>
-
-        <main class="listings-content">
-            <div class="listings-wrapper">
-
-                <div class="listings-grid">
-                    <article class="listing-card">
-                        <div class="image-wrapper">
-                            <img src="https://via.placeholder.com/400x250" alt="Boarding Room">
-                            <span class="tag type-tag">Single</span>
-                            <span class="tag status-tag">Available</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="title-row">
-                                <h4>Comfortable Single Room Near University</h4>
-                                <span class="rating"><i class="fas fa-star"></i> 4.5</span>
-                            </div>
-                            <p class="location-text">
-                                <i class="fas fa-map-marker-alt"></i> Wellawatte • 1.2 km from University
-                            </p>
-                            <div class="amenities-row">
-                                <span><i class="fas fa-wifi"></i> WiFi</span>
-                                <span><i class="fas fa-utensils"></i> Meals</span>
-                                <span>AC</span>
-                                <span class="more">+2 more</span>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-info">
-                                    <span class="currency">LKR</span>
-                                    <span class="amount">15,000</span>
-                                    <span class="unit">per month</span>
-                                </div>
-                                <a href="#" class="view-btn">View Details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="listing-card">
-                        <div class="image-wrapper">
-                            <img src="https://via.placeholder.com/400x250" alt="Boarding Room">
-                            <span class="tag type-tag">Shared</span>
-                            <span class="tag status-tag">Available</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="title-row">
-                                <h4>Budget-Friendly Shared Room</h4>
-                                <span class="rating"><i class="fas fa-star"></i> 4.0</span>
-                            </div>
-                            <p class="location-text">
-                                <i class="fas fa-map-marker-alt"></i> Kandy Town • 0.5 km from University
-                            </p>
-                            <div class="amenities-row">
-                                <span><i class="fas fa-wifi"></i> WiFi</span>
-                                <span class="more">+1 more</span>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-info">
-                                    <span class="currency">LKR</span>
-                                    <span class="amount">8,000</span>
-                                    <span class="unit">per month</span>
-                                </div>
-                                <a href="#" class="view-btn">View Details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="listing-card">
-                        <div class="image-wrapper">
-                            <img src="https://via.placeholder.com/400x250" alt="Boarding Room">
-                            <span class="tag type-tag">Shared</span>
-                            <span class="tag status-tag">Available</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="title-row">
-                                <h4>Budget-Friendly Shared Room</h4>
-                                <span class="rating"><i class="fas fa-star"></i> 4.0</span>
-                            </div>
-                            <p class="location-text">
-                                <i class="fas fa-map-marker-alt"></i> Kandy Town • 0.5 km from University
-                            </p>
-                            <div class="amenities-row">
-                                <span><i class="fas fa-wifi"></i> WiFi</span>
-                                <span class="more">+1 more</span>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-info">
-                                    <span class="currency">LKR</span>
-                                    <span class="amount">8,000</span>
-                                    <span class="unit">per month</span>
-                                </div>
-                                <a href="#" class="view-btn">View Details</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="listing-card">
-                        <div class="image-wrapper">
-                            <img src="https://via.placeholder.com/400x250" alt="Boarding Room">
-                            <span class="tag type-tag">Shared</span>
-                            <span class="tag status-tag">Available</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="title-row">
-                                <h4>Budget-Friendly Shared Room</h4>
-                                <span class="rating"><i class="fas fa-star"></i> 4.0</span>
-                            </div>
-                            <p class="location-text">
-                                <i class="fas fa-map-marker-alt"></i> Kandy Town • 0.5 km from University
-                            </p>
-                            <div class="amenities-row">
-                                <span><i class="fas fa-wifi"></i> WiFi</span>
-                                <span class="more">+1 more</span>
-                            </div>
-                            <div class="price-footer">
-                                <div class="price-info">
-                                    <span class="currency">LKR</span>
-                                    <span class="amount">8,000</span>
-                                    <span class="unit">per month</span>
-                                </div>
-                                <a href="#" class="view-btn">View Details</a>
-                            </div>
-                        </div>
-                    </article>
-
+                <p class="location-text">
+                  <i class="fas fa-map-marker-alt"></i> Kandy Town • 0.5 km from
+                  University
+                </p>
+                <div class="amenities-row">
+                  <span><i class="fas fa-wifi"></i> WiFi</span>
+                  <span class="more">+1 more</span>
                 </div>
-            </div>
-        </main>
+                <div class="price-footer">
+                  <div class="price-info">
+                    <span class="currency">LKR</span>
+                    <span class="amount">8,000</span>
+                    <span class="unit">per month</span>
+                  </div>
+                  <a href="#" class="view-btn">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="listing-card">
+              <div class="image-wrapper">
+                <img
+                  src="https://via.placeholder.com/400x250"
+                  alt="Boarding Room"
+                />
+                <span class="tag type-tag">Shared</span>
+                <span class="tag status-tag">Available</span>
+              </div>
+              <div class="card-body">
+                <div class="title-row">
+                  <h4>Budget-Friendly Shared Room</h4>
+                  <span class="rating"><i class="fas fa-star"></i> 4.0</span>
+                </div>
+                <p class="location-text">
+                  <i class="fas fa-map-marker-alt"></i> Kandy Town • 0.5 km from
+                  University
+                </p>
+                <div class="amenities-row">
+                  <span><i class="fas fa-wifi"></i> WiFi</span>
+                  <span class="more">+1 more</span>
+                </div>
+                <div class="price-footer">
+                  <div class="price-info">
+                    <span class="currency">LKR</span>
+                    <span class="amount">8,000</span>
+                    <span class="unit">per month</span>
+                  </div>
+                  <a href="#" class="view-btn">View Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="listing-card">
+              <div class="image-wrapper">
+                <img
+                  src="https://via.placeholder.com/400x250"
+                  alt="Boarding Room"
+                />
+                <span class="tag type-tag">Shared</span>
+                <span class="tag status-tag">Available</span>
+              </div>
+              <div class="card-body">
+                <div class="title-row">
+                  <h4>Budget-Friendly Shared Room</h4>
+                  <span class="rating"><i class="fas fa-star"></i> 4.0</span>
+                </div>
+                <p class="location-text">
+                  <i class="fas fa-map-marker-alt"></i> Kandy Town • 0.5 km from
+                  University
+                </p>
+                <div class="amenities-row">
+                  <span><i class="fas fa-wifi"></i> WiFi</span>
+                  <span class="more">+1 more</span>
+                </div>
+                <div class="price-footer">
+                  <div class="price-info">
+                    <span class="currency">LKR</span>
+                    <span class="amount">8,000</span>
+                    <span class="unit">per month</span>
+                  </div>
+                  <a href="#" class="view-btn">View Details</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </main>
     </section>
 
     <div id="footer-placeholder"></div>
 
     <script src="Script.js"></script>
-</body>
+    <script src="boardings.js"></script> </body>
+  </body>
 </html>
